@@ -2,14 +2,33 @@ package com.bostonkoseninsandwiches.weatherapp.Helpers;
 
 import java.util.List;
 
+import com.google.gson.annotations.SerializedName;
+
+
 public class ListItem{
+
+	@SerializedName("dt")
 	private int dt;
+
+	@SerializedName("rain")
 	private Rain rain;
+
+	@SerializedName("dt_txt")
 	private String dtTxt;
+
+	@SerializedName("weather")
 	private List<WeatherItem> weather;
+
+	@SerializedName("main")
 	private Main main;
+
+	@SerializedName("clouds")
 	private Clouds clouds;
+
+	@SerializedName("sys")
 	private Sys sys;
+
+	@SerializedName("wind")
 	private Wind wind;
 
 	public void setDt(int dt){
@@ -75,19 +94,4 @@ public class ListItem{
 	public Wind getWind(){
 		return wind;
 	}
-
-	@Override
- 	public String toString(){
-		return 
-			"ListItem{" + 
-			"dt = '" + dt + '\'' + 
-			",rain = '" + rain + '\'' + 
-			",dt_txt = '" + dtTxt + '\'' + 
-			",weather = '" + weather + '\'' + 
-			",main = '" + main + '\'' + 
-			",clouds = '" + clouds + '\'' + 
-			",sys = '" + sys + '\'' + 
-			",wind = '" + wind + '\'' + 
-			"}";
-		}
 }

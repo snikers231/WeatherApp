@@ -1,10 +1,24 @@
 package com.bostonkoseninsandwiches.weatherapp.Helpers;
 
+
+import com.google.gson.annotations.SerializedName;
+
+
 public class City{
+
+	@SerializedName("country")
 	private String country;
+
+	@SerializedName("coord")
 	private Coord coord;
+
+	@SerializedName("name")
 	private String name;
+
+	@SerializedName("id")
 	private int id;
+
+	@SerializedName("population")
 	private int population;
 
 	public void setCountry(String country){
@@ -46,16 +60,4 @@ public class City{
 	public int getPopulation(){
 		return population;
 	}
-
-	@Override
- 	public String toString(){
-		return 
-			"City{" + 
-			"country = '" + country + '\'' + 
-			",coord = '" + coord + '\'' + 
-			",name = '" + name + '\'' + 
-			",id = '" + id + '\'' + 
-			",population = '" + population + '\'' + 
-			"}";
-		}
 }

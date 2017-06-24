@@ -1,7 +1,15 @@
 package com.bostonkoseninsandwiches.weatherapp.Helpers;
 
+
+import com.google.gson.annotations.SerializedName;
+
+
 public class Wind{
+
+	@SerializedName("deg")
 	private double deg;
+
+	@SerializedName("speed")
 	private double speed;
 
 	public void setDeg(double deg){
@@ -19,13 +27,4 @@ public class Wind{
 	public double getSpeed(){
 		return speed;
 	}
-
-	@Override
- 	public String toString(){
-		return 
-			"Wind{" + 
-			"deg = '" + deg + '\'' + 
-			",speed = '" + speed + '\'' + 
-			"}";
-		}
 }

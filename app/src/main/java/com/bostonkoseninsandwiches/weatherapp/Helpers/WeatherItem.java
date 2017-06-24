@@ -1,9 +1,21 @@
 package com.bostonkoseninsandwiches.weatherapp.Helpers;
 
+
+import com.google.gson.annotations.SerializedName;
+
+
 public class WeatherItem{
+
+	@SerializedName("icon")
 	private String icon;
+
+	@SerializedName("description")
 	private String description;
+
+	@SerializedName("main")
 	private String main;
+
+	@SerializedName("id")
 	private int id;
 
 	public void setIcon(String icon){
@@ -37,15 +49,4 @@ public class WeatherItem{
 	public int getId(){
 		return id;
 	}
-
-	@Override
- 	public String toString(){
-		return 
-			"WeatherItem{" + 
-			"icon = '" + icon + '\'' + 
-			",description = '" + description + '\'' + 
-			",main = '" + main + '\'' + 
-			",id = '" + id + '\'' + 
-			"}";
-		}
 }
