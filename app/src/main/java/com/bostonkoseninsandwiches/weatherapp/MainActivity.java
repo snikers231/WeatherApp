@@ -42,19 +42,22 @@ public class MainActivity extends AppCompatActivity {
 
         WeatherAPI weatherAPI = retrofit.create(WeatherAPI.class);
 
-        Call<List<WeatherData>> call = weatherAPI.getWeatherToday("Moscow", "ru", API_KEY);
+        Call<WeatherData> call = weatherAPI.getWeatherToday("Moscow", "ru", API_KEY);
 
-      call.enqueue(new Callback<List<WeatherData>>() {
+      call.enqueue(new Callback<WeatherData>() {
           @Override
-          public void onResponse(Call<List<WeatherData>> call, Response<List<WeatherData>> response) {
+          public void onResponse(Call<WeatherData> call, Response<WeatherData> response) {
 
             //TODO save data to object & display
-
+                String res = String.valueOf(response.body().getCity().getName());
+              TextView textview = (TextView) findViewById(R.id.buton);
+              textview.setText(res);
 
           }
 
+
           @Override
-          public void onFailure(Call<List<WeatherData>> call, Throwable t) {
+          public void onFailure(Call<WeatherData> call, Throwable t) {
 
           }
       });

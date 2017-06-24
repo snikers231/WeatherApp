@@ -13,9 +13,9 @@ import retrofit2.http.Query;
  */
 
 public interface WeatherAPI {
-
+//root is not a list
     @GET("forecast")
-    Call<List<WeatherData>> getWeatherToday(@Query("q") String name,
+    Call<WeatherData> getWeatherToday(@Query("q") String name,
                                            @Query("lang") String lang,
                                            @Query("apiKey") String apiKey);
 
