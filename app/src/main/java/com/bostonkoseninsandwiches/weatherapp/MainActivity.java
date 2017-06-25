@@ -11,11 +11,17 @@ import android.widget.TextView;
 
 import com.bostonkoseninsandwiches.weatherapp.Helpers.WeatherData;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+
+import static android.R.id.message;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -54,11 +60,18 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<WeatherData> call, Response<WeatherData> response) {
 
-                    //Retreiving data from OpenWeatherMap using Helpers and populating TextViews
+                        //Retreiving data from OpenWeatherMap using Helpers and populating TextViews
 
                         String temp = String.valueOf(response.body().getMain().getTemp());
                         String humidity = String.valueOf(response.body().getMain().getHumidity());
                         String pressure = String.valueOf(response.body().getMain().getPressure());
+
+                        //Receiving date from Server
+                        long milliseconds = response.body().getDt();
+                        Date d = new Date(milliseconds*1000);
+                        SimpleDateFormat simpleData = new SimpleDateFormat("dd.MM.yyyy");
+                        String date = simpleData.format(d);
+
 
 
                         String message = String.valueOf(response.message());
@@ -72,8 +85,12 @@ public class MainActivity extends AppCompatActivity {
 
                         TextView humView = (TextView) findViewById(R.id.humidity_today);
                         humView.setText("Абсолютная влажность воздуха " + humidity + "%");
+
                         TextView presView = (TextView) findViewById(R.id.pressure_today);
                         presView.setText("Атмосферное давление " + pressure + " мм.рт.ст.");
+
+                        TextView dateView = (TextView) findViewById(R.id.day_today);
+                        dateView.setText("Сегодня " + date);
 
                     }
 
