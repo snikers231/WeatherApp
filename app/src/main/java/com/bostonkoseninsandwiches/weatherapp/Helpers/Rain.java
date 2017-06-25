@@ -1,9 +1,8 @@
 package com.bostonkoseninsandwiches.weatherapp.Helpers;
 
+/**
+ * Created by Konstantin2 on 25.06.2017.
+ */
 
-import com.google.gson.annotations.SerializedName;
-
-
-public class Rain{
-
+public class Rain {
 }

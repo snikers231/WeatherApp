@@ -2,8 +2,6 @@ package com.bostonkoseninsandwiches.weatherapp;
 
 import com.bostonkoseninsandwiches.weatherapp.Helpers.WeatherData;
 
-import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -14,9 +12,10 @@ import retrofit2.http.Query;
 
 public interface WeatherAPI {
 //root is not a list
-    @GET("forecast")
+    @GET("weather")
     Call<WeatherData> getWeatherToday(@Query("q") String name,
-                                           @Query("lang") String lang,
-                                           @Query("apiKey") String apiKey);
+                                      @Query("lang") String lang,
+                                      @Query("units") String units,
+                                      @Query("apiKey") String apiKey);
 
 }

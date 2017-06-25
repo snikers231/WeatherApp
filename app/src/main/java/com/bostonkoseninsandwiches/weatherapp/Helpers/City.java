@@ -9,14 +9,23 @@ public class City{
 	@SerializedName("country")
 	private String country;
 
-	@SerializedName("coord")
-	private Coord coord;
-
 	@SerializedName("name")
 	private String name;
 
-	@SerializedName("id")
-	private int id;
+	@SerializedName("lon")
+	private double lon;
+
+	@SerializedName("iso2")
+	private String iso2;
+
+	@SerializedName("type")
+	private String type;
+
+	@SerializedName("lat")
+	private double lat;
+
+	@SerializedName("geoname_id")
+	private int geonameId;
 
 	@SerializedName("population")
 	private int population;
@@ -29,14 +38,6 @@ public class City{
 		return country;
 	}
 
-	public void setCoord(Coord coord){
-		this.coord = coord;
-	}
-
-	public Coord getCoord(){
-		return coord;
-	}
-
 	public void setName(String name){
 		this.name = name;
 	}
@@ -45,12 +46,44 @@ public class City{
 		return name;
 	}
 
-	public void setId(int id){
-		this.id = id;
+	public void setLon(double lon){
+		this.lon = lon;
 	}
 
-	public int getId(){
-		return id;
+	public double getLon(){
+		return lon;
+	}
+
+	public void setIso2(String iso2){
+		this.iso2 = iso2;
+	}
+
+	public String getIso2(){
+		return iso2;
+	}
+
+	public void setType(String type){
+		this.type = type;
+	}
+
+	public String getType(){
+		return type;
+	}
+
+	public void setLat(double lat){
+		this.lat = lat;
+	}
+
+	public double getLat(){
+		return lat;
+	}
+
+	public void setGeonameId(int geonameId){
+		this.geonameId = geonameId;
+	}
+
+	public int getGeonameId(){
+		return geonameId;
 	}
 
 	public void setPopulation(int population){
@@ -60,4 +93,19 @@ public class City{
 	public int getPopulation(){
 		return population;
 	}
+
+	@Override
+ 	public String toString(){
+		return 
+			"City{" + 
+			"country = '" + country + '\'' + 
+			",name = '" + name + '\'' + 
+			",lon = '" + lon + '\'' + 
+			",iso2 = '" + iso2 + '\'' + 
+			",type = '" + type + '\'' + 
+			",lat = '" + lat + '\'' + 
+			",geoname_id = '" + geonameId + '\'' + 
+			",population = '" + population + '\'' + 
+			"}";
+		}
 }

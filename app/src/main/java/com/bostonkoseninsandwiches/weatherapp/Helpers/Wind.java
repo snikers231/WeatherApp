@@ -1,30 +1,32 @@
+
 package com.bostonkoseninsandwiches.weatherapp.Helpers;
 
-
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+public class Wind {
 
-public class Wind{
+    @SerializedName("speed")
+    @Expose
+    private Double speed;
+    @SerializedName("deg")
+    @Expose
+    private Integer deg;
 
-	@SerializedName("deg")
-	private double deg;
+    public Double getSpeed() {
+        return speed;
+    }
 
-	@SerializedName("speed")
-	private double speed;
+    public void setSpeed(Double speed) {
+        this.speed = speed;
+    }
 
-	public void setDeg(double deg){
-		this.deg = deg;
-	}
+    public Integer getDeg() {
+        return deg;
+    }
 
-	public double getDeg(){
-		return deg;
-	}
+    public void setDeg(Integer deg) {
+        this.deg = deg;
+    }
 
-	public void setSpeed(double speed){
-		this.speed = speed;
-	}
-
-	public double getSpeed(){
-		return speed;
-	}
 }
