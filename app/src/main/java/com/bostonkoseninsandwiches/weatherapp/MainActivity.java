@@ -8,11 +8,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
 import com.bostonkoseninsandwiches.weatherapp.Helpers.WeatherData;
+import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
 
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -31,11 +35,10 @@ public class MainActivity extends AppCompatActivity {
     private static final String API_KEY = "be7dee010e120a3af05f191d88798bde";
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.test_layout);
+        setContentView(R.layout.activity_main);
 
         //DO NOT ROTATE SCREEN
 
@@ -72,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
                         //Rounding the temperature
 
-                        int temperatureRounded = (int)Math.round(response.body().getMain().getTemp());
+                        int temperatureRounded = (int) Math.round(response.body().getMain().getTemp());
 
 
                         String temp = String.valueOf(temperatureRounded);
@@ -81,6 +84,9 @@ public class MainActivity extends AppCompatActivity {
                         String weatherMain = String.valueOf(response.body().getWeather().get(0).getDescription());
                         String windSpeed = String.valueOf(response.body().getWind().getSpeed());
 
+                        //Creating Image URL for Picasso
+                        String imageID = String.valueOf(response.body().getWeather().get(0).getIcon());
+                        String imageUrl = "http://openweathermap.org/img/w/" + imageID + ".png";
 
                         //Receiving date from Server
                         long milliseconds = response.body().getDt();
@@ -91,8 +97,8 @@ public class MainActivity extends AppCompatActivity {
 
                         String message = String.valueOf(response.message());
 
-                    //    TextView textview1 = (TextView) findViewById(R.id.buton);
-                   //     textview1.setText(message);
+                        //  TextView textview1 = (TextView) findViewById(R.id.buton);
+                        //textview1.setText(message);
 
 
                         TextView tempView = (TextView) findViewById(R.id.temp_today);
@@ -113,6 +119,9 @@ public class MainActivity extends AppCompatActivity {
 
                         TextView windSpeedView = (TextView) findViewById(R.id.windSpeed_today);
                         windSpeedView.setText(windSpeed + " м/c");
+                        //Downloading image to imageView
+                        ImageView weatherImage = (ImageView) findViewById(R.id.today_weather_picture);
+                        Picasso.with(MainActivity.this).load(imageUrl).into(weatherImage);
 
                     }
 

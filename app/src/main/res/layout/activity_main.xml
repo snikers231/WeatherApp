@@ -1,87 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="8dp"
-    tools:context="com.bostonkoseninsandwiches.weatherapp.MainActivity">
+    android:padding="16dp"
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp">
+    tools:context="com.bostonkoseninsandwiches.weatherapp.MainActivity">>
+
+    <TableRow android:padding="8dp">
 
         <EditText
             android:id="@+id/input_city"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="8" />
+            android:layout_weight="1" />
 
         <ImageButton
             android:id="@+id/refresh_button"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
+            android:scaleType="fitCenter"
             android:src="@drawable/ic_update" />
 
         <ImageButton
             android:id="@+id/settings_button"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
+            android:scaleType="fitCenter"
             android:src="@drawable/ic_settings" />
+    </TableRow>
 
-
-    </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <TableRow
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        android:gravity="center_horizontal"
         android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/today_weather_picture"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+
+
+            />
+
+
+    </TableRow>
+
+    <TableRow android:padding="8dp">
 
         <TextView
             android:id="@+id/daytodayFixedText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:textSize="16sp"
-            android:text="Сегодня "/>
+            android:text="Сегодня "
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/day_today"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_span="20"
             android:layout_toLeftOf="@+id/today_weather_picture"
             android:textSize="16sp"
 
             />
 
+    </TableRow>
 
-        <ImageView
-            android:id="@+id/today_weather_picture"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-          android:layout_margin="16dp"
-            android:src="@drawable/weather3"
-            android:textSize="16sp" />
+    <TableRow android:padding="8dp">
 
         <TextView
             android:id="@+id/temp_todayFixedText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/daytodayFixedText"
-            android:layout_toLeftOf="@+id/temp_today"
-
             android:text="Температура "
             android:textSize="16sp" />
 
@@ -89,25 +85,18 @@
             android:id="@+id/temp_today"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/today_weather_picture"
             android:layout_below="@+id/day_today"
-            android:textSize="16sp"
+            android:layout_toLeftOf="@+id/today_weather_picture"
+            android:textSize="16sp" />
+    </TableRow>
 
-            />
-
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp">
+    <TableRow android:padding="8dp">
 
         <TextView
             android:id="@+id/humidity_fixedText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Абсолютная влажность воздуха "
+            android:text="Абсолютная влажность "
             android:textSize="16sp" />
 
         <TextView
@@ -115,13 +104,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="16sp" />
-    </LinearLayout>
+    </TableRow>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp">
+    <TableRow android:padding="8dp">
 
         <TextView
             android:id="@+id/pressure_fixedText"
@@ -138,14 +123,9 @@
 
             />
 
+    </TableRow>
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp">
+    <TableRow android:padding="8dp">
 
         <TextView
             android:id="@+id/windSpeed_fixedText"
@@ -163,19 +143,15 @@
             />
 
 
-    </LinearLayout>
+    </TableRow>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp">
+    <TableRow android:padding="8dp">
 
         <TextView
             android:id="@+id/description_fixedText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-                android:text="Сегодня "
+            android:text="А вообще "
             android:textSize="16sp" />
 
         <TextView
@@ -186,13 +162,27 @@
 
             />
 
+    </TableRow>
 
-    </LinearLayout>
+    <TableRow>
 
-    <TextView
-        android:id="@+id/buton"
+        <TextView
+            android:id="@+id/buton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp" />
+    </TableRow>
+
+    <TableRow
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="8dp">
 
-
-</LinearLayout>
+        <Button
+            android:id="@+id/forecast_5_days"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Прогноз на 5 дней" />
+    </TableRow>
+</TableLayout>
