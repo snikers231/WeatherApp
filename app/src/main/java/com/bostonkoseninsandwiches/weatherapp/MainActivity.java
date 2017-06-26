@@ -2,6 +2,7 @@ package com.bostonkoseninsandwiches.weatherapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -51,6 +52,13 @@ public class MainActivity extends AppCompatActivity {
 
                 String cityName = String.valueOf(city.getText());
 
+                //Checking if EditText isn't empty
+
+                if (TextUtils.isEmpty(cityName)) {
+                    city.setError("Введите город");
+                    return;
+                }
+
                 //Sending request to OpenweatherMap using Retrofit and WeatherAPI request's constructor.
 
                 Call<WeatherData> call = weatherAPI.getWeatherToday(cityName, "ru", "metric", API_KEY);
@@ -65,13 +73,15 @@ public class MainActivity extends AppCompatActivity {
                         String temp = String.valueOf(response.body().getMain().getTemp());
                         String humidity = String.valueOf(response.body().getMain().getHumidity());
                         String pressure = String.valueOf(response.body().getMain().getPressure());
+                        String weatherMain = String.valueOf(response.body().getWeather().get(0).getDescription());
+                        String windSpeed = String.valueOf(response.body().getWind().getSpeed());
+
 
                         //Receiving date from Server
                         long milliseconds = response.body().getDt();
-                        Date d = new Date(milliseconds*1000);
+                        Date d = new Date(milliseconds * 1000);
                         SimpleDateFormat simpleData = new SimpleDateFormat("dd.MM.yyyy");
                         String date = simpleData.format(d);
-
 
 
                         String message = String.valueOf(response.message());
@@ -81,16 +91,23 @@ public class MainActivity extends AppCompatActivity {
 
 
                         TextView tempView = (TextView) findViewById(R.id.temp_today);
-                        tempView.setText("Температура " + temp + " градусов Цельсия");
+                        tempView.setText("Температура " + temp + "°C");
 
                         TextView humView = (TextView) findViewById(R.id.humidity_today);
-                        humView.setText("Абсолютная влажность воздуха " + humidity + "%");
+                        humView.setText(humidity + "%");
 
                         TextView presView = (TextView) findViewById(R.id.pressure_today);
-                        presView.setText("Атмосферное давление " + pressure + " мм.рт.ст.");
+                        presView.setText(pressure + " мм.рт.ст.");
 
                         TextView dateView = (TextView) findViewById(R.id.day_today);
                         dateView.setText("Сегодня " + date);
+
+
+                        TextView descriptionView = (TextView) findViewById(R.id.description_today);
+                        descriptionView.setText(weatherMain);
+
+                        TextView windSpeedView = (TextView) findViewById(R.id.windSpeed_today);
+                        windSpeedView.setText(windSpeed + " м/c");
 
                     }
 
