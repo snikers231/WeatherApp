@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+
+    tools:context="com.bostonkoseninsandwiches.weatherapp.MainActivity">>
+
+    <TableRow android:padding="8dp">
+
+        <EditText
+            android:id="@+id/input_city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/refresh_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_update" />
+
+        <ImageButton
+            android:id="@+id/settings_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_settings" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/today_weather_picture"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+
+            android:src="@drawable/weather3" />
+
+
+    </TableRow>
+
+    <TableRow android:padding="8dp">
+
+        <TextView
+            android:id="@+id/daytodayFixedText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Сегодня "
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/day_today"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_span="20"
+            android:layout_toLeftOf="@+id/today_weather_picture"
+            android:textSize="16sp"
+
+            />
+
+    </TableRow>
+
+    <TableRow android:padding="8dp">
+
+        <TextView
+            android:id="@+id/temp_todayFixedText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Температура "
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/temp_today"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/day_today"
+            android:layout_toLeftOf="@+id/today_weather_picture"
+            android:textSize="16sp" />
+    </TableRow>
+
+    <TableRow android:padding="8dp">
+
+        <TextView
+            android:id="@+id/humidity_fixedText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Абсолютная влажность "
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/humidity_today"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp" />
+    </TableRow>
+
+    <TableRow android:padding="8dp">
+
+        <TextView
+            android:id="@+id/pressure_fixedText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Атмосферное давление "
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/pressure_today"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+
+            />
+
+    </TableRow>
+
+    <TableRow android:padding="8dp">
+
+        <TextView
+            android:id="@+id/windSpeed_fixedText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Скорость ветра "
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/windSpeed_today"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+
+            />
+
+
+    </TableRow>
+
+    <TableRow android:padding="8dp">
+
+        <TextView
+            android:id="@+id/description_fixedText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Сегодня "
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/description_today"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+
+            />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="8dp">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Прогноз на 5 дней"
+            android:id="@+id/forecast_5_days"/>
+    </TableRow>
+</TableLayout>
