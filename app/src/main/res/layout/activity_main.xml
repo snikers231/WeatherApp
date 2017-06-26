@@ -48,31 +48,49 @@
         android:padding="8dp">
 
         <TextView
-            android:id="@+id/day_today"
-            android:layout_width="match_parent"
+            android:id="@+id/daytodayFixedText"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
+            android:textSize="16sp"
+            android:text="Сегодня "/>
+
+        <TextView
+            android:id="@+id/day_today"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_toLeftOf="@+id/today_weather_picture"
-            android:layout_weight="1"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+
+            />
+
 
         <ImageView
             android:id="@+id/today_weather_picture"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_weight="5"
+          android:layout_margin="16dp"
             android:src="@drawable/weather3"
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/temp_today"
-            android:layout_width="match_parent"
+            android:id="@+id/temp_todayFixedText"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/day_today"
+            android:layout_below="@+id/daytodayFixedText"
+            android:layout_toLeftOf="@+id/temp_today"
+
+            android:text="Температура "
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/temp_today"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_toLeftOf="@+id/today_weather_picture"
-            android:layout_weight="1"
+            android:layout_below="@+id/day_today"
             android:textSize="16sp"
 
             />

@@ -26,15 +26,10 @@ import static android.R.id.message;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String URL = "http://api.openweathermap.org/data/2.5/";
+
     private static final String API_KEY = "be7dee010e120a3af05f191d88798bde";
 
-    Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl(URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
 
-    WeatherAPI weatherAPI = retrofit.create(WeatherAPI.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
                 //Sending request to OpenweatherMap using Retrofit and WeatherAPI request's constructor.
 
-                Call<WeatherData> call = weatherAPI.getWeatherToday(cityName, "ru", "metric", API_KEY);
+                Call<WeatherData> call = RetrofitBuilderHelper.weatherAPI.getWeatherToday(cityName, "ru", "metric", API_KEY);
 
 
                 call.enqueue(new Callback<WeatherData>() {
@@ -70,7 +65,12 @@ public class MainActivity extends AppCompatActivity {
 
                         //Retreiving data from OpenWeatherMap using Helpers and populating TextViews
 
-                        String temp = String.valueOf(response.body().getMain().getTemp());
+                        //Rounding the temperature
+
+                        int temperatureRounded = (int)Math.round(response.body().getMain().getTemp());
+
+
+                        String temp = String.valueOf(temperatureRounded);
                         String humidity = String.valueOf(response.body().getMain().getHumidity());
                         String pressure = String.valueOf(response.body().getMain().getPressure());
                         String weatherMain = String.valueOf(response.body().getWeather().get(0).getDescription());
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                         TextView tempView = (TextView) findViewById(R.id.temp_today);
-                        tempView.setText("Температура " + temp + "°C");
+                        tempView.setText(temp + "°C");
 
                         TextView humView = (TextView) findViewById(R.id.humidity_today);
                         humView.setText(humidity + "%");
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                         presView.setText(pressure + " мм.рт.ст.");
 
                         TextView dateView = (TextView) findViewById(R.id.day_today);
-                        dateView.setText("Сегодня " + date);
+                        dateView.setText(date);
 
 
                         TextView descriptionView = (TextView) findViewById(R.id.description_today);
