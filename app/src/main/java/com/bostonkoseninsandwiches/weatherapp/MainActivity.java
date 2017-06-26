@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.test_layout);
 
         //DO NOT ROTATE SCREEN
 
@@ -91,8 +91,8 @@ public class MainActivity extends AppCompatActivity {
 
                         String message = String.valueOf(response.message());
 
-                        TextView textview1 = (TextView) findViewById(R.id.buton);
-                        textview1.setText(message);
+                    //    TextView textview1 = (TextView) findViewById(R.id.buton);
+                   //     textview1.setText(message);
 
 
                         TextView tempView = (TextView) findViewById(R.id.temp_today);
