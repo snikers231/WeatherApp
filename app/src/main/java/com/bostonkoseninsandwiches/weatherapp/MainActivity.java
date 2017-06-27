@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 
 import com.bostonkoseninsandwiches.weatherapp.Helpers.WeatherData;
-import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
 
 import java.net.URL;
